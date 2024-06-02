@@ -1,6 +1,10 @@
 package org.example;
 
 
+import com.google.zxing.WriterException;
+
+import java.io.IOException;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -23,6 +27,14 @@ public class Main {
 
         hilo4.start();
         hilo5.start();
+
+        // -------------- Aca voy a generar una imagen con un codigo qr --------------
+
+        try {
+            QRCodeGenerator.generateQRCodeImage("https://www.example.com", 350, 350, "QRCode.png");
+        } catch (WriterException | IOException e) {
+            e.printStackTrace();
+        }
 
 
     }
